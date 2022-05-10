@@ -14,7 +14,6 @@ class ArrayOfStrings {
   }
 }
 
-
 class ArrayOfAnything<T> {
   constructor(public collection: T[]) {}
 
@@ -24,10 +23,9 @@ class ArrayOfAnything<T> {
 }
 
 // So T counts that you will define type dynamiclly when you create instance
-new ArrayOfAnything<string>(['a', 'b', 'c']);
+new ArrayOfAnything<string>(["a", "b", "c"]);
 // This is type inference on Generics...
-new ArrayOfAnything(['a', 'b', 'c']);
-
+new ArrayOfAnything(["a", "b", "c"]);
 
 // Example of generics with functions
 
@@ -43,26 +41,38 @@ function printNumbers(arr: number[]): void {
   }
 }
 
-function printAnything<ThisCanBeAnthing>(arr: T[]): void {
+// WE LINKED INPUT AND OUTPUT TOGETHER
+// IF IT GETS ARRAY OF STRINGS, FN WILL KNOW RETURN MUST BE STRING TOO
+function firstElement<Type>(arr: Type[]): Type | undefined {
+  return arr[0];
+}
+
+// s is of type 'string'
+const s = firstElement(["a", "b", "c"]);
+// n is of type 'number'
+const n = firstElement([1, 2, 3]);
+// u is of type undefined
+const u = firstElement([]);
+
+function printAnything<ThisCanBeAnthing>(arr: ThisCanBeAnthing[]): void {
   for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
   }
 }
 // Dont use inference, this is better practice...
-printAnything<string>(['a', 'b', 'c']);
-
+printAnything<string>(["a", "b", "c"]);
 
 // Genric Constraints
 
 class Car {
   print() {
-    console.log('I am a car');
+    console.log("I am a car");
   }
 }
 
 class House {
   print() {
-    console.log('I am a house');
+    console.log("I am a house");
   }
 }
 

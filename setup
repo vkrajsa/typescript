@@ -1,4 +1,6 @@
 TSC is compiler for typescript for node.js
 It compiles TS to JS...
 
-tsc --help to run command ot
+tsc --help to run command to find out version
+
+npm install -g typescript
