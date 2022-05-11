@@ -3,7 +3,7 @@ import { NumbersCollection } from "./NumbersCollection";
 import { CharactersCollection } from "./CharactersCollection";
 import { LinkedList } from "./LinkedList";
 
-const numbersCollection = new NumbersCollection([4, 3, 2, 1]);
+const numbersCollection = new NumbersCollection([-1, 54, 4, 3, 2, 1]);
 numbersCollection.sort();
 // const sorter = new Sorter(numbersCollection);
 // sorter.sort();
@@ -11,10 +11,11 @@ console.log(numbersCollection.data);
 
 // TODO : linked list is not done, follow the tutorial
 
-// const charactersCollection = new CharactersCollection("xxasadaaa");
+const charactersCollection = new CharactersCollection("zzzzxxasadaaa");
+charactersCollection.sort();
 // const sorter = new Sorter(charactersCollection);
 // sorter.sort();
-// console.log(charactersCollection.data);
+console.log(charactersCollection.data);
 
 // const linkedList = new LinkedList();
 // linkedList.add(-20);
