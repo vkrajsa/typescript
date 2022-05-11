@@ -41,6 +41,8 @@ function printNumbers(arr: number[]): void {
   }
 }
 
+type StringArray = Array<string>;
+
 // WE LINKED INPUT AND OUTPUT TOGETHER
 // IF IT GETS ARRAY OF STRINGS, FN WILL KNOW RETURN MUST BE STRING TOO
 function firstElement<Type>(arr: Type[]): Type | undefined {
@@ -59,7 +61,10 @@ function printAnything<ThisCanBeAnthing>(arr: ThisCanBeAnthing[]): void {
     console.log(arr[i]);
   }
 }
-// Dont use inference, this is better practice...
+// Dont use inference
+// printAnything(["a", "b", "c"]);
+//  this is better practice...
+
 printAnything<string>(["a", "b", "c"]);
 
 // Genric Constraints

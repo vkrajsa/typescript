@@ -16,6 +16,8 @@ linkedList.add(-20);
 linkedList.add(-10);
 linkedList.add(100);
 linkedList.add(5000);
+// CREATE A WAY TO CALL collection.sort()
+// probably we need to extend Sorter method to be used by other class as well and extend it somehow..
 const sorter = new sorter_1.Sorter(linkedList);
 sorter.sort();
 linkedList.print();

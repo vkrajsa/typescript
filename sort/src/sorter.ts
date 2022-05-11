@@ -12,21 +12,20 @@ interface Sortable {
   swap(leftIndex: number, rightIndex: number): void;
 }
 
-export class Sorter {
-  // this doesnt have to be here since you have public declared below...
-  // collection: number[] | string;
-
-  constructor(public collection: Sortable) {
-    this.collection = collection;
-  }
+export abstract class Sorter {
+  // we promise when child classes from sorter will provide these methods
+  //
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
+  abstract length: number;
 
   sort(): void {
-    const { length } = this.collection;
+    const { length } = this;
 
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1);
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1);
         }
       }
     }

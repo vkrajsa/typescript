@@ -2,18 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Sorter = void 0;
 class Sorter {
-    // this doesnt have to be here since you have public declared below...
-    // collection: number[] | string;
-    constructor(collection) {
-        this.collection = collection;
-        this.collection = collection;
-    }
     sort() {
-        const { length } = this.collection;
+        const { length } = this;
         for (let i = 0; i < length; i++) {
             for (let j = 0; j < length - i - 1; j++) {
-                if (this.collection.compare(j, j + 1)) {
-                    this.collection.swap(j, j + 1);
+                if (this.compare(j, j + 1)) {
+                    this.swap(j, j + 1);
                 }
             }
         }
