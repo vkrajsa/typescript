@@ -1,10 +1,21 @@
 import { NumbersCollection } from "./NumbersCollection";
 
+// INSTRUCTIONS ON HOW TO BE ELIGIBLE TO BE SORTING
+// for Sorter to sort things you need 3 things to give us
+// length , compare method, swap method...
+// if you gives us this you are eligible to use this Sorter algorithm
+
+interface Sortable {
+  length: number;
+  compare(leftIndex: number, rightIndex: number): boolean;
+  swap(leftIndex: number, rightIndex: number): void;
+}
+
 export class Sorter {
   // this doesnt have to be here since you have public declared below...
   // collection: number[] | string;
 
-  constructor(public collection: NumbersCollection) {
+  constructor(public collection: Sortable) {
     this.collection = collection;
   }
 
