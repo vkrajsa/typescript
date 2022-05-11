@@ -1,6 +1,8 @@
 export class NumbersCollection {
   constructor(public data: number[]) {}
 
+  // you dont have to call the function like collection.length()
+  // this is just syntax sugar
   get length(): number {
     return this.data.length;
   }

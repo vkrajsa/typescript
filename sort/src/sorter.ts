@@ -7,6 +7,7 @@ import { NumbersCollection } from "./NumbersCollection";
 
 interface Sortable {
   length: number;
+  // the name of argument doesnt have to be anything...its just for readability
   compare(leftIndex: number, rightIndex: number): boolean;
   swap(leftIndex: number, rightIndex: number): void;
 }

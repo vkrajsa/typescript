@@ -5,6 +5,8 @@ class NumbersCollection {
     constructor(data) {
         this.data = data;
     }
+    // you dont have to call the function like collection.length()
+    // this is just syntax sugar
     get length() {
         return this.data.length;
     }
