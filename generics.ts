@@ -1,3 +1,54 @@
+// EXERCISE https://www.typescript-training.com/course/fundamentals-v3/15-dict-map-filter-reduce/
+
+const fruits = {
+  apple: { color: "red", mass: 100 },
+  grape: { color: "red", mass: 5 },
+  banana: { color: "yellow", mass: 183 },
+  lemon: { color: "yellow", mass: 80 },
+  pear: { color: "green", mass: 178 },
+  orange: { color: "orange", mass: 262 },
+  raspberry: { color: "red", mass: 4 },
+  cherry: { color: "red", mass: 5 },
+};
+
+interface Dict<T> {
+  [k: string]: T;
+}
+
+// Array.prototype.map, but for Dict
+
+function mapDict<T>(items: Dict<T>, callback: (item: T, name: any) => void): Dict<T> {
+  const newDictionary = {};
+
+  for (const item in items) {
+    newDictionary[item] = callback(items[item], item);
+  }
+  return newDictionary;
+}
+
+const fruitsWithKgMass = mapDict(fruits, (fruit, name) => ({
+  ...fruit,
+  kg: 10 * fruit.mass,
+  name,
+}));
+
+// Array.prototype.filter, but for Dict
+
+function filterDict<T>(items: Dict<T>, callback: (item: T) => boolean): Dict<T> {
+  const dictionary: Dict<T> = {};
+
+  for (const item in items) {
+    if (callback(items[item])) {
+      dictionary[item] = items[item];
+    }
+  }
+  return dictionary;
+}
+
+const redFruits = filterDict(fruits, fruit => fruit.color === "red");
+// Array.prototype.reduce, but for Dict
+function reduceDict(...args: any[]): any {}
+
 class ArrayOfNumbers {
   constructor(public collection: number[]) {}
 
